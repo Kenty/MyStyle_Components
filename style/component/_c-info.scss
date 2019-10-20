@@ -1,0 +1,46 @@
+/*
+---
+name: Components Info
+category:
+  - components/info
+  - components
+---
+
+This component is the style of the underlying data table.
+
+```html
+<dl class="c-infoTable">
+  <dt class="c-infoTable__label c-infoTable--menu">カット</dt>
+  <dd class="c-infoTable__data">受付 <span class="c-infoTable--time">18:00</span>まで</dd>
+</dl>
+<dl class="c-infoTable">
+  <dt class="c-infoTable__label c-infoTable--menu">パーマ</dt>
+  <dd class="c-infoTable__data">受付 <span class="c-infoTable--time">17:30</span>まで</dd>
+</dl>
+```
+*/
+
+.c-infoTable {
+  // flex container
+  display: flex;
+  flex-direction: row;
+  position: relative;
+
+  &__label {
+    // flex item
+    flex: 1 1 30%;
+    color: $base-color-darken70;
+  }
+
+  &__data {
+    // flex item
+    flex: 1 1 70%;
+    color: $base-color-darken90;
+    padding-left: $base-spacing-unit--small;
+    overflow: hidden;
+
+    + .p-infoTable__data {
+      padding-left: 0;
+    }
+  }
+}

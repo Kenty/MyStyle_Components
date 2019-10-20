@@ -1,0 +1,240 @@
+// mixin
+
+@mixin _clearfix($supportIE: true) {
+  @if ($supportIE == true) {
+    *zoom: 1;
+  }
+
+  &::after {
+    display: table;
+    clear: both;
+    content: "";
+  }
+}
+
+@mixin central-elements() {
+  $half: 1 / 2;
+  position: absolute;
+  left: percentage($half);
+  top: percentage($half);
+  transform: translate(percentage(-$half), percentage(-$half));
+}
+
+@mixin behind-element() {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+@mixin hiddenLink() {
+  @include behind-element();
+  margin: auto;
+  overflow: hidden;
+  z-index: 0;
+}
+
+@mixin box-shadow($args...) {
+  box-shadow: $args;
+}
+
+@mixin text-shadow($args...) {
+  text-shadow: $args;
+}
+
+@mixin border-radius($args...) {
+  border-radius: $args;
+}
+
+@mixin transition($args...) {
+  transition: $args;
+}
+
+@mixin font-smooting($value: on) {
+  @if ($value == on) {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @else {
+    -moz-osx-font-smoothing: auto;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+@mixin breakpoint($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+
+  @if ($value != null) {
+    // 1
+    $current-breakpoint: $breakpoint !global; // 2
+    @media (min-width: $value) {
+      @content;
+    } // 3
+    $current-breakpoint: $default-breakpoint !global; // 5
+  }
+
+  @else {
+    @warn "Invalid breakpoint `#{$breakpoint}`."; // 6
+  }
+}
+
+@mixin placeholders($name) {
+  @if not index($placeholders, $name) {
+    $placeholders: append($placeholders, $name) !global;
+
+    @at-root {
+      @each $breakpoint, $value in $breakpoints {
+        @media (min-width: $value) {
+          &%#{$name}-#{$breakpoint} {
+            @content;
+          }
+        }
+      }
+
+      %#{$name}-#{$default-breakpoint} {
+        @content;
+      }
+    }
+  }
+
+  @else {
+    @warn "Placeholder `#{$name}` already exists.";
+  }
+}
+
+// Extend the accurate placeholder
+// according to the current scope
+// Basically instead of doing:
+//    @extend %clear;
+// You go:
+//    @include _(clear);
+// Not much longer, is it?
+
+@mixin _($name) {
+  @extend %#{$name}-#{$current-breakpoint} !optional;
+}
+
+@mixin webfont($value, $style: normal, $weight: 400) {
+  @if ($value == 'none' or $value == false) {
+    $weight: 500;
+    font-family: $secondary-font-family;
+  }
+  font-weight: $weight;
+  font-style: $style;
+  font-kerning: none;
+  // .wf-loading &,
+  // .wf-active & {
+  //   @if ($serif == true) {
+  //     font-family: serif;
+  //   }
+  //   @else {
+  //     font-family: sans-serif;
+  //   }
+  // }
+  @if ($value == $webfonts-Noto) {
+    .wf-inactive & {
+      font-family: $webfonts-Noto;
+    }
+  }
+
+  @elseif ($value == $webfonts-Quattro) {
+    .wf-inactive & {
+      font-family: $webfonts-Quattro;
+    }
+  }
+}
+
+/**
+ * FONT-SIZE
+ * @param  {[type]} $font-size-value    [description]
+ * @param  {[type]} $line-height-value: auto          [description]
+ * @return {[type]}                     [description]
+ *
+ * From inuitcss
+ * https://github.com/inuitcss/inuitcss/blob/develop/tools/_tools.font-size.scss
+ */
+
+@mixin font-size($font-size-value, $line-height-value: auto) {
+  @if ($line-height-value == 'auto') {
+    line-height: ceil($font-size-value / $base-line-height) * ($base-line-height / $font-size-value);
+  }
+
+  @else {
+    @if (type-of($line-height-value) == number or $line-height-value == 'inherit' or $line-height-value == 'normal') {
+      line-height: $line-height-value;
+    }
+
+    @elseif ($line-height-value != 'none' and $line-height-value != false) {
+      @warn ""#{$line-height-value}"is not a valid value for `line-heihgt`.";
+    }
+  }
+  font-size: $font-size-value * 1px;
+  font-size: ($font-size-value / $base-font-size) * 1rem;
+}
+
+@mixin block-half($gutter: margin) {
+  @if ($gutter == 'margin') {
+    display: block;
+    vertical-align: top;
+
+    @include breakpoint(tablet) {
+      display: inline-block;
+      width: calc(100% / 2 - #{$base-spacing-unit});
+    }
+  }
+
+  @elseif ($gutter == 'padding') {
+    display: block;
+    vertical-align: top;
+
+    @include breakpoint(tablet) {
+      display: inline-block;
+      padding: $base-spacing-unit--small;
+      width: percentage(1/2);
+    }
+  }
+
+  @else {
+    @warn "Invalid block-half `#{$gutter}`.";
+  }
+}
+
+@mixin inline-block($inline-block: true) {
+  @if ($inline-block == true) {
+    display: inline-block;
+    margin-right: $base-spacing-unit--small;
+  }
+
+  @else {
+    display: block;
+  }
+}
+
+@mixin test-mq-align() {
+  @include breakpoint(mobile) {
+    @include _(u-align--right);
+    border: 3px solid tomato;
+  }
+
+  @include breakpoint(tablet) {
+    @include _(u-align--center);
+    border: 3px solid tomato;
+  }
+
+  @include breakpoint(desktop) {
+    @include _(u-align--left);
+    border: 3px solid tomato;
+  }
+}
+
+// z-index
+@mixin z-index($name, $child: 0) {
+  $getkey: map-get($z-index-map, $name);
+
+  @if $child != 0 {
+    z-index: index($getkey, $child);
+  }
+  z-index: inspect(index($z-index-map, ($name $getkey)));
+}

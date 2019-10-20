@@ -1,0 +1,81 @@
+/*
+---
+name: Components Card
+category:
+  - components/card
+  - components
+---
+
+```html
+<div class="c-card">
+  <div class="c-card__media">
+    <img src="http://lorempixel.com/320/240/cats/" alt="cats" />
+  </div>
+  <div class="c-card__body">
+    <p class="c-card__title">CARD TITLE</p>
+    <div class="c-card__meta"><p>meta:</p></div>
+  </div>
+</div>
+<div class="c-card">
+  <p class="c-card__image" style="background-image: url('http://lorempixel.com/480/320/cats/')">
+  </p>
+  <div class="c-card__body">
+    <p class="c-card__title">CARD TITLE</p>
+  </div>
+</div>
+```
+
+*/
+.c-card {
+  @include box-shadow($card-shadow);
+  // @include border-radius($card-round);
+  display: inline-block;
+  background-color: $base-color-lighten20;
+  position: relative;
+  border: 1px solid $base-color-darken10;
+  padding: $base-spacing-unit;
+  // overflow: hidden;
+
+  &__media {
+    > img {
+      width: 100%;
+    }
+  }
+
+  &__image {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-left: $base-spacing-unit--tiny solid $base-color-lighten20;
+    border-right: $base-spacing-unit--tiny solid $base-color-lighten20;
+    border-top: $base-spacing-unit--tiny solid $base-color-lighten20;
+    margin: 0;
+
+    &::before {
+      display: block;
+      padding-bottom: 100%;
+      content: "";
+    }
+  }
+
+  &__body {
+    text-align: left;
+    overflow: hidden;
+  }
+
+  &__title {
+    @include font-size(18, 1.5);
+    font-weight: bold;
+  }
+
+  &__meta {
+    color: $base-color-darken60;
+  }
+
+  &__link {
+    display: block;
+    text-decoration: none;
+  }
+}
+
+

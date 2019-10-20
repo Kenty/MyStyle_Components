@@ -1,0 +1,89 @@
+/*
+---
+name: Components Meta list
+category:
+  - components/meta
+  - components
+---
+
+```html
+<div class="c-meta">
+  <ul class="c-meta__list">
+    <li class="list__item"><span class="c-meta__label">tags:</span><a href="">List Item</a></li>
+    <li class="list__item"><a href="">List Item</a></li>
+    <li class="list__item"><a href="">List Item</a></li>
+    <li class="list__item">List Item</li>
+  </ul>
+</div>
+```
+
+*/
+.c-meta {
+  color: $base-color-darken60;
+}
+
+.c-meta__list {
+  // flex container
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 0;
+
+  @include breakpoint(mobile) {
+    flex-direction: row;
+  }
+
+  > .list__item {
+    @include font-size(14, 1.8);
+    // flex container
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    list-style: none;
+
+    &:not(:last-child) {
+      margin-right: $base-spacing-unit--small;
+    }
+
+    > a {
+      position: relative;
+      z-index: 1;
+
+      &:not(:first-of-type) {
+        margin-left: $base-spacing-unit--tiny;
+      }
+    }
+
+    time {
+      line-height: 1;
+    }
+  }
+}
+
+.c-meta__label {
+  margin-right: $base-spacing-unit--tiny;
+}
+
+.c-meta {
+  .c-card__title + & {
+    border-top: 1px solid $base-color-darken10;
+    margin-top: $base-spacing-unit--tiny;
+    padding-top: $base-spacing-unit;
+  }
+
+  .c-btn {
+    padding: $base-spacing-unit--tiny;
+    line-height: 1;
+  }
+
+  * + .c-meta__list {
+    margin-left: $base-spacing-unit--tiny;
+  }
+}
+
+.c-meta__list {
+  .c-icon {
+    margin-right: $base-spacing-unit--tiny;
+  }
+}

@@ -1,0 +1,87 @@
+/*
+---
+name: Components Heading
+category:
+  - components/heading
+  - components
+---
+
+```html
+  <h1 class="c-heading">Heading</h1>
+  <h2 class="c-heading c-heading--title">Heading</h2>
+  <h3 class="c-heading c-heading--sub">Heading</h3>
+
+  <h2 class="c-heading c-heading--title">サロン インフォメーション</h2>
+  <p class="c-heading--label">Salon Information</p>
+```
+
+*/
+.c-heading {
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  font-feature-settings: "kern", "palt";
+
+  &--title {
+    @include webfont($webfonts-Noto);
+    @include font-size(24, 1);
+    display: inline-block;
+    letter-spacing: 0.01rem;
+
+    @include breakpoint(mobile) {
+      @include font-size(30, 1);
+      letter-spacing: 0.15rem;
+    }
+
+    @include breakpoint(tablet) {
+      @include font-size(38, 1);
+    }
+
+    &::after {
+      display: block;
+      border-top: 2px solid $accent-color-green-lighten10;
+      border-bottom: 1px solid $accent-color-green-darken20;
+      margin-right: auto;
+      margin-left: auto;
+      margin-bottom: 0;
+      margin-top: $base-spacing-unit--small;
+      width: $half-block;
+      content: "";
+    }
+  }
+
+  &--sub {
+    // display: inline-block;
+    letter-spacing: .05rem;
+    font-weight: bold;
+  }
+
+  &--label {
+    @include font-size(18, 1);
+    @include webfont($webfonts-Quattro);
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+
+    @include breakpoint(mobile) {
+      @include font-size(22, 1);
+      letter-spacing: 0.2rem;
+    }
+  }
+}
+
+.c-heading {
+  + .c-heading--label {
+    margin-top: $base-spacing-unit--tiny;
+
+    @include breakpoint(mobile) {
+      margin-top: $base-spacing-unit--small;
+    }
+  }
+}
+
+
+/* Override c-icon */
+.c-heading--label {
+  > .c-icon.is-rotate {
+    transform: rotate(-135deg);
+  }
+}

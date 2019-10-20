@@ -1,0 +1,41 @@
+/*
+---
+name: Utilities Align
+category:
+  - utilities/align
+  - utilities
+---
+
+```html
+  <p class="u-align--left">Text Left</a>
+  <p class="u-align--center">Text Center</a>
+  <p class="u-align--right">Text Right</a>
+```
+
+*/
+.u-align--center,
+%u-align--center {
+  text-align: center;
+}
+
+.u-align--left,
+%u-align--left {
+  text-align: left;
+}
+
+.u-align--right,
+%u-align--right {
+  text-align: right;
+}
+
+@include placeholders('u-align--center') {
+  text-align: center;
+}
+
+@include placeholders('u-align--left') {
+  text-align: left;
+}
+
+@include placeholders('u-align--right') {
+  text-align: right;
+}

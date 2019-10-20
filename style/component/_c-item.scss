@@ -1,0 +1,65 @@
+/*
+---
+name: Components Item
+category:
+  - components/item
+  - components
+---
+
+ - This component is similar to a card style, but it is slightly different.
+ - 基本的に`c-item`ブロックにインタラクティブコンテンツ（子孫）を含まない
+ときに使用する。
+
+
+```html
+<a href="#" class="c-item">
+  <div class="c-item__media">
+    <img src="http://lorempixel.com/320/240/cats/" alt="cats" />
+  </div>
+  <div class="c-item__body">
+    <p class="c-item__title">ITEM TITLE</p>
+    <p>Lorem ipsum Eiusmod elit consequat Duis officia aute reprehenderit dolor ullamco veniam consequat in deserunt eu id quis aliqua reprehenderit eiusmod non commodo enim aliquip culpa in labore Ut culpa enim ex eu velit deserunt voluptate exercitation anim anim occaecat.</p>
+  </div>
+</a>
+```
+*/
+.c-item {
+  @include transition($ease-out);
+  display: block;
+  color: $base-color-darken60;
+  position: relative;
+  font-size: 0;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.7;
+    cursor: pointer;
+    will-change: opacity;
+  }
+
+  &__media {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__body {
+    @include _(u-align--left);
+    @include font-size(16);
+  }
+
+  &__title {
+    @include font-size(16, false);
+    @include _(item--title);
+  }
+
+  &__meta {
+    // color: $base-color-darken50;
+    margin-top: $base-spacing-unit--tiny;
+  }
+}
+
+.c-item__body {
+  > *:not(:first-child) {
+    margin-top: $base-spacing-unit--tiny;
+  }
+}

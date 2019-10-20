@@ -1,0 +1,56 @@
+[class*="c-section__"] {
+  & + & {
+    margin-top: $base-spacing-unit--medium;
+
+    @include breakpoint(mobile) {
+      margin-top: $base-spacing-unit--large;
+    }
+  }
+}
+
+.c-section {
+  @include _(u-align--center);
+  position: relative;
+  padding: 0 $base-spacing-unit;
+  width: 100%;
+  overflow: hidden;
+
+  &__inner {
+    padding-bottom: $base-spacing-unit--medium;
+    padding-top: $base-spacing-unit--medium;
+
+    @include breakpoint(mobile) {
+      padding-bottom: $base-spacing-unit--large;
+      padding-top: $base-spacing-unit--large;
+    }
+  }
+
+  &__label {
+    display: block;
+  }
+
+  &__desc {
+    margin-top: $base-spacing-unit;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.c-section__inner {
+  &.is-replace {
+    margin-right: $base-spacing-unit--small * -1;
+    margin-left: $base-spacing-unit--small * -1;
+  }
+}
+
+.c-section__header {
+  .c-icon {
+    @include _(c-icon__section-title);
+    margin-right: $base-spacing-unit--tiny;
+    margin-left: $base-spacing-unit * -1;
+  }
+}

@@ -1,0 +1,35 @@
+.u-heading,
+%u-heading,
+.u-navs,
+%u-navs {
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+.u-heading--headline,
+%u-heading--headline {
+  font-weight: 200;
+  letter-spacing: 0.25rem;
+}
+
+.u-heading--label,
+%u-heading--label {
+  font-weight: 700;
+}
+
+.u-heading--labels,
+%u-heading--labels {
+  font-weight: 600;
+}
+
+.u-navs--labels,
+%u-navs--labels {
+  @include font-smooting(off);
+  font-weight: 500;
+}
+
+@include placeholders(item--title) {
+  @include font-smooting(on);
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}

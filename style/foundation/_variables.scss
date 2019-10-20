@@ -1,0 +1,230 @@
+@charset "utf-8";
+
+// variables
+
+// colors
+$base-color: #e3e3e3 !default;
+$accent-color: #9c1a68 !default;
+$accent-color2: #e4dda3 !default;
+$accent-color3: #dbd7bd !default;
+$accent-color-green: #b5dc34 !default;
+$sub-color: #240819 !default;
+$base-text-color: $sub-color !default;
+$bg-color: $base-color !default;
+$pre-bg-color: $base-color;
+
+// base-color - lightness
+$base-color-lighten10: scale-color($base-color, $lightness: 10%);
+$base-color-lighten20: scale-color($base-color, $lightness: 20%);
+$base-color-lighten30: scale-color($base-color, $lightness: 30%);
+$base-color-lighten40: scale-color($base-color, $lightness: 40%);
+$base-color-lighten50: scale-color($base-color, $lightness: 50%);
+$base-color-lighten60: scale-color($base-color, $lightness: 60%);
+$base-color-lighten70: scale-color($base-color, $lightness: 70%);
+$base-color-lighten80: scale-color($base-color, $lightness: 80%);
+$base-color-lighten90: scale-color($base-color, $lightness: 90%);
+$base-color-lighten100: scale-color($base-color, $lightness: 100%);
+// base-color - darkness
+$base-color-darken10: scale-color($base-color, $lightness: -10%);
+$base-color-darken20: scale-color($base-color, $lightness: -20%);
+$base-color-darken30: scale-color($base-color, $lightness: -30%);
+$base-color-darken40: scale-color($base-color, $lightness: -40%);
+$base-color-darken50: scale-color($base-color, $lightness: -50%);
+$base-color-darken60: scale-color($base-color, $lightness: -60%);
+$base-color-darken70: scale-color($base-color, $lightness: -70%);
+$base-color-darken80: scale-color($base-color, $lightness: -80%);
+$base-color-darken90: scale-color($base-color, $lightness: -90%);
+$base-color-darken100: scale-color($base-color, $lightness: -100%);
+
+// sub-color - lightness
+$sub-color-lighten10: scale-color($sub-color, $lightness: 10%);
+$sub-color-lighten20: scale-color($sub-color, $lightness: 20%);
+$sub-color-lighten30: scale-color($sub-color, $lightness: 30%);
+$sub-color-lighten40: scale-color($sub-color, $lightness: 40%);
+$sub-color-lighten50: scale-color($sub-color, $lightness: 50%);
+$sub-color-lighten60: scale-color($sub-color, $lightness: 60%);
+$sub-color-lighten70: scale-color($sub-color, $lightness: 70%);
+$sub-color-lighten80: scale-color($sub-color, $lightness: 80%);
+$sub-color-lighten90: scale-color($sub-color, $lightness: 90%);
+$sub-color-lighten100: scale-color($sub-color, $lightness: 100%);
+// sub-color - darkness
+$sub-color-darken10: scale-color($sub-color, $lightness: -10%);
+$sub-color-darken20: scale-color($sub-color, $lightness: -20%);
+$sub-color-darken30: scale-color($sub-color, $lightness: -30%);
+$sub-color-darken40: scale-color($sub-color, $lightness: -40%);
+$sub-color-darken50: scale-color($sub-color, $lightness: -50%);
+$sub-color-darken60: scale-color($sub-color, $lightness: -60%);
+$sub-color-darken70: scale-color($sub-color, $lightness: -70%);
+$sub-color-darken80: scale-color($sub-color, $lightness: -80%);
+$sub-color-darken90: scale-color($sub-color, $lightness: -90%);
+$sub-color-darken100: scale-color($sub-color, $lightness: -100%);
+
+// accent-color - lightness
+$accent-color-lighten10: scale-color($accent-color, $lightness: 10%);
+$accent-color-lighten20: scale-color($accent-color, $lightness: 20%);
+$accent-color-lighten30: scale-color($accent-color, $lightness: 30%);
+$accent-color-lighten40: scale-color($accent-color, $lightness: 40%);
+$accent-color-lighten50: scale-color($accent-color, $lightness: 50%);
+$accent-color-lighten60: scale-color($accent-color, $lightness: 60%);
+$accent-color-lighten70: scale-color($accent-color, $lightness: 70%);
+$accent-color-lighten80: scale-color($accent-color, $lightness: 80%);
+$accent-color-lighten90: scale-color($accent-color, $lightness: 90%);
+$accent-color-lighten100: scale-color($accent-color, $lightness: 100%);
+// accent-color - darkness
+$accent-color-darken10: scale-color($accent-color, $lightness: -10%);
+$accent-color-darken20: scale-color($accent-color, $lightness: -20%);
+$accent-color-darken30: scale-color($accent-color, $lightness: -30%);
+$accent-color-darken40: scale-color($accent-color, $lightness: -40%);
+$accent-color-darken50: scale-color($accent-color, $lightness: -50%);
+$accent-color-darken60: scale-color($accent-color, $lightness: -60%);
+$accent-color-darken70: scale-color($accent-color, $lightness: -70%);
+$accent-color-darken80: scale-color($accent-color, $lightness: -80%);
+$accent-color-darken90: scale-color($accent-color, $lightness: -90%);
+$accent-color-darken100: scale-color($accent-color, $lightness: -100%);
+
+// accent-color-green - lightness
+$accent-color-green-lighten10: scale-color($accent-color-green, $lightness: 10%);
+$accent-color-green-lighten20: scale-color($accent-color-green, $lightness: 20%);
+$accent-color-green-lighten30: scale-color($accent-color-green, $lightness: 30%);
+$accent-color-green-lighten40: scale-color($accent-color-green, $lightness: 40%);
+$accent-color-green-lighten50: scale-color($accent-color-green, $lightness: 50%);
+$accent-color-green-lighten60: scale-color($accent-color-green, $lightness: 60%);
+$accent-color-green-lighten70: scale-color($accent-color-green, $lightness: 70%);
+$accent-color-green-lighten80: scale-color($accent-color-green, $lightness: 80%);
+$accent-color-green-lighten90: scale-color($accent-color-green, $lightness: 90%);
+$accent-color-green-lighten100: scale-color($accent-color-green, $lightness: 100%);
+// accent-color-green - darkness
+$accent-color-green-darken10: scale-color($accent-color-green, $lightness: -10%);
+$accent-color-green-darken20: scale-color($accent-color-green, $lightness: -20%);
+$accent-color-green-darken30: scale-color($accent-color-green, $lightness: -30%);
+$accent-color-green-darken40: scale-color($accent-color-green, $lightness: -40%);
+$accent-color-green-darken50: scale-color($accent-color-green, $lightness: -50%);
+$accent-color-green-darken60: scale-color($accent-color-green, $lightness: -60%);
+$accent-color-green-darken70: scale-color($accent-color-green, $lightness: -70%);
+$accent-color-green-darken80: scale-color($accent-color-green, $lightness: -80%);
+$accent-color-green-darken90: scale-color($accent-color-green, $lightness: -90%);
+$accent-color-green-darken100: scale-color($accent-color-green, $lightness: -100%);
+$base-text-color-rev: scale-color(invert($base-color), $lightness: 30%);
+
+// socials icon color
+$twitter-color: rgb(101, 187, 242) !default;
+$instagram-color: rgb(80, 130, 166) !default;
+$pinterest-color: rgb(219, 51, 25) !default;
+$facebook-color: rgb(75, 110, 169) !default;
+$google-plus-color: rgb(230, 98, 73) !default;
+
+$social-icons: (
+  facebook: (color: $facebook-color),
+  google-plus: (color: $google-plus-color),
+);
+
+// Shadow
+$card-shadow: 0 1px 3px 1px rgba($base-color-darken40, .15) !default;
+$card-hover-shadow: 0 5px 10px 1px rgba($base-color-darken50, .2) !default;
+
+// Set a rem font size with pixel fallback
+$base-font-size: 16 !default;
+$base-line-height: 24 !default;
+
+// Max layout size
+$content-width: 62.5rem;
+$layout-width: 75rem;
+
+// Image size
+// Width
+$avater-image: 18.75rem;
+$styles-image: 22.5rem;
+$item-image: 9.375rem;
+// Height
+$hero-mobile-height: 25rem;
+$hero-tablet-height: 43.75rem;
+
+
+// Block size
+$half-block: percentage(1 / 2) !default;
+$third-block: percentage(1 / 3) !default;
+$quarter-block: percentage(1 / 4) !default;
+
+// Border radius size
+$base-round: 3px !default;
+$card-round: 6px !default;
+$circle-round: percentage(1 / 2) !default;
+
+// base grid gutter sizes
+// $base-spacing-unit: .9375rem;
+$base-spacing-unit: 24 / $base-font-size * 1rem !default;
+$base-spacing-unit--tiny: 6 / $base-font-size * 1rem !default;
+$base-spacing-unit--small: 12 / $base-font-size * 1rem !default;
+$base-spacing-unit--medium: 48 / $base-font-size * 1rem !default;
+$base-spacing-unit--large: 72 / $base-font-size * 1rem !default;
+$base-spacing-unit--huge: 96 / $base-font-size * 1rem !default;
+$base-spacing-unit--extra: 120 / $base-font-size * 1rem !default;
+
+// Override variables
+$grid-gutter-width: ($base-spacing-unit * 2);
+$tablet: 40rem + ($base-spacing-unit * 2);
+$mobile: 27rem + ($base-spacing-unit * 2);
+$screen-sm-min: 48rem - $grid-gutter-width;
+
+// Breakpoints
+$breakpoints: (
+  'mobile': 480px, 'tablet': 688px, 'desktop': 1000px
+);
+
+// Caching current breakpoint
+// Not meant to be manually edited
+$default-breakpoint: root;
+$current-breakpoint: $default-breakpoint;
+
+// Caching existing placeholders
+// Not meant to be manually edited
+$placeholders: ();
+
+// Base font family
+// $base-font-family: YuGothic, '游ゴシック', sans-serif;
+$base-font-family: -apple-system Hiragino Kaku Gothic Pro, Meiryo, sans-serif;
+$secondary-font-family: serif;
+// Google Web Fonts
+$webfonts-Noto: 'Noto Sans Japanese';
+$webfonts-Quattro: 'Quattrocento', serif;
+
+// Basic transition
+$ease-out: all 300ms ease-out !default;
+$ease-in: all 300ms ease-in !default;
+// $cubic-bezier: all 300ms cubic-bezier(.15, 0, .85, 1) !default;
+$ease-InOut: all 300ms ease-in-out !default;
+$Out-Cubic: all 300ms cubic-bezier(0.25, 0.6, 0.35, 1) !default;
+$Out-Quadratic: all 300ms cubic-bezier(.17, .84, .44, 1) !default;
+$InOutBack: all 300ms cubic-bezier(0.68, -0.55, 0.27, 1.55) !default;
+
+// z-index
+$z-index-map: (
+  gnav--mask: true,
+  gnav: true,
+  gnav--button: true,
+  pagetop: true,
+  screen-reader: true
+);
+
+// Root
+:root {
+  --main-color: $base-text-color;
+  --accent-color: $accent-color;
+  --bg-color: $bg-color;
+  // --bg-color: initial;
+  --bg: var(--bg-color, $base-color);
+  --base-font: $base-font-family;
+  // SVG
+  --fill: initial;
+  --icon-main: $base-color-lighten20;
+  --icon-sub: $base-color-lighten10;
+  --icon-outer: rgba($sub-color-lighten10, .7);
+  --icon-burger: $base-color-lighten20;
+  --icon-scissors: $sub-color;
+  // information
+  --icon-information-text: $sub-color-darken50;
+  --icon-information-bg: $base-color;
+  font-size: 16px;
+  fill: var(--fill);
+  -webkit-text-size-adjust: 100%;
+}

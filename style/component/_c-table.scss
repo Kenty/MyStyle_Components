@@ -1,0 +1,84 @@
+/*
+---
+name: Components Table
+category:
+  - components/table
+  - components
+---
+
+```html
+<table class="manu__table c-table c-table--bordered">
+  <caption class="c-table__cap">シャンプー＆スタイリング込</caption>
+  <thead class="c-table__header">
+    <tr>
+      <th></th>
+      <th class="c-table--right">Price</th>
+    </tr>
+  </thead>
+  <tbody class="c-table__body">
+    <tr class="c-table__item">
+      <th class="c-table--left">一般</th>
+      <td class="c-table--right">¥6500</td>
+    </tr>
+    <tr class="c-table__item">
+      <th class="c-table--left">小学生以下</th>
+      <td class="c-table--right">¥2000</td>
+    </tr>
+  </tbody>
+</table>
+```
+*/
+.c-table {
+  width: 100%;
+  line-height: 1;
+
+  &__cap {
+    padding: $base-spacing-unit 0;
+
+    P {
+      margin: 0;
+    }
+  }
+
+  &__body {
+    tr {
+      > * {
+        padding-right: $base-spacing-unit--tiny;
+        padding-left: $base-spacing-unit--tiny;
+        padding-bottom: $base-spacing-unit--small;
+        padding-top: $base-spacing-unit--small;
+      }
+    }
+  }
+
+  & &--right {
+    @extend %u-align--right;
+  }
+
+  &--bordered {
+    th,
+    td {
+      border: 1px solid invert($bg-color);
+    }
+
+    .c-table__header {
+      > tr:last-child th {
+        border-bottom-width: 2px;
+      }
+    }
+
+    .c-table__body {
+      > tr th:last-of-type {
+        border-right-width: 2px;
+      }
+    }
+  }
+
+  .item--numeric {
+    @extend %u-align--right;
+  }
+}
+
+.c-table__header {
+  border-bottom: 2px solid;
+}

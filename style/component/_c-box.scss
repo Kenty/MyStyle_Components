@@ -1,0 +1,98 @@
+/*
+---
+name: Components Box
+category:
+  - components/box
+  - components
+tag:
+  - latest
+---
+
+```html
+<div>
+  <ul class="c-box-list">
+    <li class="list__item" style="background-color: #ccc;padding: 5rem 2rem;margin: .75rem;flex: 0 1 20% ">Box Row</li>
+    <li class="list__item" style="background-color: #ccc;padding: 5rem 2rem;margin: .75rem;flex: 0 1 20% ">Box Row</li>
+    <li class="list__item" style="background-color: #ccc;padding: 5rem 2rem;margin: .75rem;flex: 0 1 25% ">Box Row</li>
+    <li class="list__item" style="background-color: #ccc;padding: 5rem 2rem;margin: .75rem;flex: 0 1 20% ">Box Row</li>
+    <li class="list__item" style="background-color: #ccc;padding: 5rem 2rem;margin: .75rem;flex: 0 1 20% ">Box Row</li>
+  </ul>
+
+  <ul class="c-box-list c-box-list--row">
+    <li class="list__item" style="background-color: #8C8C8C;padding: 5rem 3rem;margin: .75rem;">Box Row</li>
+    <li class="list__item" style="background-color: #8C8C8C;padding: 5rem 3rem;margin: .75rem;">Box Row</li>
+    <li class="list__item" style="background-color: #8C8C8C;padding: 5rem 3rem;margin: .75rem;">Box Row</li>
+    <li class="list__item" style="background-color: #8C8C8C;padding: 5rem 3rem;margin: .75rem;">Box Row</li>
+    <li class="list__item" style="background-color: #8C8C8C;padding: 5rem 3rem;margin: .75rem;">Box Row</li>
+  </ul>
+  <ul class="c-box-list c-box-list--column">
+    <li class="list__item" style="background-color: #8C8C8C;padding: 2rem 1rem;margin: .375rem;">Box Column</li>
+    <li class="list__item" style="background-color: #8C8C8C;padding: 2rem 1rem;margin: .375rem;">Box Column</li>
+    <li class="list__item" style="background-color: #8C8C8C;padding: 2rem 1rem;margin: .375rem;">Box Column</li>
+    <li class="list__item" style="background-color: #8C8C8C;padding: 2rem 1rem;margin: .375rem;">Box Column</li>
+    <li class="list__item" style="background-color: #8C8C8C;padding: 2rem 1rem;margin: .375rem;">Box Column</li>
+  </ul>
+</div>
+```
+
+*/
+.c-box {
+  width: 100%;
+
+  &__list {
+    // flex container
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+
+    > .list__item {
+      @include font-size(16, 1.5);
+      display: inline-block;
+      list-style: none;
+    }
+  }
+
+  &__list--column {
+    flex-direction: column;
+
+    > .list__item {
+      width: 100%;
+    }
+  }
+}
+
+.c-box-list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-size: 0;
+
+  > .list__item {
+    @include font-size(16, 1.5);
+    list-style: none;
+  }
+
+  &--row {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    > .list__item {
+      display: inline-block;
+    }
+  }
+
+  &--column {
+    flex-direction: column;
+
+    > .list__item {
+      width: 100%;
+    }
+  }
+}

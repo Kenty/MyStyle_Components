@@ -1,0 +1,21 @@
+@include placeholders('c-icon__section-title') {
+  height: 1.2rem;
+  width: 1.2rem;
+  vertical-align: -0.15rem;
+
+  @include breakpoint(mobile) {
+    height: 1.5rem;
+    width: 1.5rem;
+    vertical-align: -0.25rem;
+  }
+}
+
+%c-icon__section-title {
+  @include _(c-icon__section-title);
+}
+
+.c-icon {
+  height: 1rem;
+  width: 1rem;
+  fill: currentColor;
+}

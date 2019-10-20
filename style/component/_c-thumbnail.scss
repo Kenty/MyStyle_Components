@@ -1,0 +1,36 @@
+/**
+ * - c-thumbnail - components
+ */
+.c-thumbnail {
+  background-color: $base-color-darken30;
+  position: relative;
+  padding-bottom: 100%;
+  height: 0;
+  overflow: hidden;
+  text-align: center;
+
+  > img {
+    @include central-elements();
+    width: 100%;
+    max-width: none;
+  }
+
+  > .c-icon {
+    @include central-elements();
+    margin: auto;
+    height: $half-block;
+    width: $half-block;
+    opacity: 0.75;
+  }
+
+  &__caption {
+    margin-top: $base-spacing-unit--small;
+  }
+
+  &__text {
+    @include font-size(24, 1);
+    color: $accent-color-darken30;
+    letter-spacing: 0.2rem;
+    font-weight: bold;
+  }
+}

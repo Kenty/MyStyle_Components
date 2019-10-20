@@ -1,0 +1,10 @@
+.c-caption {
+  margin-top: $base-spacing-unit--tiny;
+
+  &__title {
+    @include font-size(14, auto);
+    color: $base-color-darken60;
+    text-align: center;
+    font-weight: 700;
+  }
+}

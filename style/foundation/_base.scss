@@ -1,0 +1,353 @@
+/**
+ * Reset some basic elements
+ */
+
+// html,
+// body,
+// div,
+// span,
+// object,
+// iframe,
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6,
+// p,
+// blockquote,
+// pre,
+// abbr,
+// address,
+// cite,
+// code,
+// del,
+// dfn,
+// em,
+// img,
+// ins,
+// kbd,
+// q,
+// samp,
+// small,
+// strong,
+// sub,
+// sup,
+// var,
+// b,
+// i,
+// dl,
+// dt,
+// dd,
+// ol,
+// ul,
+// li,
+// fieldset,
+// form,
+// label,
+// legend,
+// table,
+// caption,
+// tbody,
+// tfoot,
+// thead,
+// tr,
+// th,
+// td,
+// article,
+// aside,
+// canvas,
+// details,
+// figcaption,
+// figure,
+// footer,
+// header,
+// hgroup,
+// menu,
+// nav,
+// section,
+// main,
+// summary,
+// time,
+// mark,
+// audio,
+// video {
+//   font-size: 100%;
+//   font-weight: normal;
+//   margin: 0;
+//   padding: 0;
+//   list-style: none;
+//   vertical-align: baseline;
+//   border: 0;
+//   outline: 0;
+// }
+
+* {
+  box-sizing: border-box;
+}
+
+// WAI-ARIA
+// SVG
+svg:not(:root) {
+  overflow: hidden;
+}
+// svg[aria-hidden="true"] {
+//   display: none;
+// }
+// [aria-hidden="false"] {
+//   display: block;
+// }
+
+body {
+  @include font-smooting(on);
+  color: var(--main-color);
+  background-color: var(--bg);
+  font-weight: 500;
+  font-family: var(--base-font);
+  // font-feature-settings: "kern", "palt";
+  font-feature-settings: "kern", "pkna";
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+dl,
+dd,
+ol,
+ul,
+form,
+fieldset,
+legend,
+figure,
+table,
+th,
+td,
+caption,
+hr {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+p {
+  vertical-align: baseline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+b,
+dt,
+em,
+strong {
+  font-weight: bold;
+}
+
+a {
+  @include transition(all 300ms ease-out);
+  color: $accent-color;
+  text-decoration: underline;
+}
+
+/**
+ * Images
+ */
+img,
+video {
+  border: 0;
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+/**
+ * media
+ */
+embed,
+iframe,
+object {
+  max-width: 100%;
+}
+
+/**
+ * Figures
+ */
+figure {
+  max-width: 100%;
+}
+
+figure > img {
+  display: block;
+}
+
+figcaption {
+  @include font-size(14, false);
+}
+
+/**
+ * Lists
+ */
+ul,
+ol {
+  margin: 1em 0 1em 1.4em;
+  line-height: 1;
+}
+
+li {
+  > ul,
+  > ol {
+    margin-bottom: 0;
+    margin-top: 0;
+
+    li {
+      list-style: circle outside none;
+    }
+  }
+}
+
+ol li {
+  list-style: decimal outside none;
+}
+
+ul li {
+  list-style: disc outside none;
+}
+
+dl,
+dt,
+dd {
+  margin: 0;
+}
+
+// dt {
+// }
+
+// dd {
+// }
+
+table,
+dl {
+  margin: 0;
+}
+
+pre,
+code {
+  @include font-size(14);
+  @include border-radius($base-round);
+  font-family: Menlo,monospace,monospace;
+}
+
+pre {
+  background-color: $pre-bg-color;
+  padding: 0.75rem;
+  overflow-x: scroll;
+  white-space: pre;
+
+  > code {
+    background-color: transparent;
+    border: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+code {
+  background-color: scale-color($accent-color-green, $lightness: 70%);
+  padding: 0.1rem $base-spacing-unit--tiny;
+}
+
+p,
+li,
+dd {
+  > code {
+    margin: 0 $base-spacing-unit--tiny;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  border-space: 0;
+}
+
+[colspan] {
+  @include _(u-align--left);
+}
+
+[rowspan] {
+  vertical-align: middle;
+}
+
+caption,
+th {
+  @include _(u-align--left);
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Screen reader text
+ */
+.screen-reader-text {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+
+  &:focus {
+    @include font-size(14, 1.5);
+    @include border-radius($base-round);
+    @include z-index(screen-reader);
+    display: block;
+    color: #21759b;
+    background-color: #f1f1f1;
+    left: 5px;
+    top: 5px;
+    padding: 15px 23px 14px;
+    height: auto;
+    width: auto;
+    clip: auto;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    text-decoration: none;
+    font-weight: bold;
+  }
+}
+
+
+// 親テーマのスタイル継承をするためのスタイル定義
+.row {
+  @include _clearfix(true);
+}
